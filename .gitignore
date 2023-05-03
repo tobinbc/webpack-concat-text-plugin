@@ -31,6 +31,6 @@ lerna-debug.log
 !.gitkeep
 
 # project
-dist/
+# dist/
 test/__output__
 test/coverage
