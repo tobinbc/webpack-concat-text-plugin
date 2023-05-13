@@ -4,6 +4,8 @@
 
 # Learn more from ready-to-use templates: https://www.gitpod.io/docs/introduction/getting-started/quickstart
 
+# NB changes to workflows cannot be pushed with gitpod
+
 tasks:
   - init: npm install && npm run build
 
