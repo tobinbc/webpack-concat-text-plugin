@@ -53,10 +53,10 @@ describe(PLUGIN_NAME, () => {
 				files.forEach((asset) => {
 					if (Object.prototype.hasOwnProperty.call(stats.compilation.assets, asset.name)) {
 						// Covers previous path test
-						const sourcePath = path.join(__dirname, "__output__", testCase, 'dist', asset.name )
-						const source = memfs.readFileSync(sourcePath, 'utf8');
+						const sourcePath = path.join(__dirname, "__output__", testCase, "dist", asset.name);
+						const source = memfs.readFileSync(sourcePath, "utf8");
 						expect(source).toMatchSnapshot("source");
-						
+
 					}
 				});
 
