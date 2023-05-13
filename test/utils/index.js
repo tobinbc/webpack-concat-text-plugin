@@ -40,27 +40,30 @@ export function createCompiler(options = {}) {
 	const compiler = webpack(
 		Array.isArray(options)
 			? options
-			: Object.assign({
-				mode: "production",
-				bail: true,
-				cache: false,
-				optimization: {
-					minimize: false
+			: Object.assign(
+				{
+					mode: "production",
+					bail: true,
+					cache: false,
+					optimization: {
+						minimize: false
+					},
+					output: {
+						pathinfo: false,
+						path: `${__dirname}/__output__`,
+						filename: "[name].[chunkhash].js",
+						chunkFilename: "[id].[name].[chunkhash].js"
+					},
+					target: "node",
+					plugins: []
 				},
-				output: {
-					pathinfo: false,
-					path: `${__dirname}/__output__`,
-					filename: "[name].[chunkhash].js",
-					chunkFilename: "[id].[name].[chunkhash].js"
-				},
-				target: "node",
-				plugins: []
-			}, options)
+				options
+			)
 	);
+	const memfs = new MemoryFileSystem();
+	compiler.outputFileSystem = memfs;
 
-	compiler.outputFileSystem = new MemoryFileSystem();
-
-	return compiler;
+	return { compiler, memfs };
 }
 
 export function countPlugins({ hooks }) {
@@ -88,8 +91,6 @@ export function removeCWD(str) {
  * @returns {string} The cleaned Error message and stack trace.
  */
 export function cleanErrorStack(error) {
-	return removeCWD(error.toString())
-		.split("\n")
-		.slice(0, 2)
+	return removeCWD(error.toString()).split("\n").slice(0, 2)
 		.join("\n");
 }

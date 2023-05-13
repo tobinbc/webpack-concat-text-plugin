@@ -1,3 +1,6 @@
+/* eslint-disable max-len */
+/* eslint-disable no-shadow */
+/* eslint-disable max-nested-callbacks */
 import fs from "fs";
 import path from "path";
 
@@ -35,7 +38,7 @@ describe(PLUGIN_NAME, () => {
 				}
 			};
 
-			const compiler = createCompiler(webpackConfig);
+			const { compiler, memfs } = createCompiler(webpackConfig);
 
 			new ConcatTextPlugin(pluginConfig).apply(compiler);
 
@@ -49,13 +52,11 @@ describe(PLUGIN_NAME, () => {
 
 				files.forEach((asset) => {
 					if (Object.prototype.hasOwnProperty.call(stats.compilation.assets, asset.name)) {
-						const { emitted, existsAt } = stats.compilation.assets[asset.name];
-						const source = stats.compilation.assets[asset.name].source();
-						const targetPath = path.relative(__dirname, existsAt);
-
-						expect(emitted).toBeTruthy();
-						expect(targetPath.split(path.sep)).toMatchSnapshot("path");
+						// Covers previous path test
+						const sourcePath = path.join(__dirname, "__output__", testCase, 'dist', asset.name )
+						const source = memfs.readFileSync(sourcePath, 'utf8');
 						expect(source).toMatchSnapshot("source");
+						
 					}
 				});
 
