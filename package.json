@@ -1,7 +1,7 @@
 {
   "name": "concat-text-webpack-plugin",
   "version": "1.0.0",
-  "description": "Concatenate and extract text files.",
+  "description": "Concatenate and extract text files. Forked + updated for Node 18",
   "main": "dist/cjs.js",
   "files": [
     "dist"
@@ -28,6 +28,7 @@
     "url": "git://github.com/merkle-open/webpack-concat-text-plugin.git"
   },
   "dependencies": {
+    "@types/jest": "29.5.1",
     "concat": "1.0.3",
     "glob": "7.1.6",
     "webpack-sources": "1.4.3"
@@ -45,7 +46,7 @@
     "memory-fs": "0.5.0",
     "pkg-ok": "2.3.1",
     "rimraf": "3.0.2",
-    "webpack": "4.43.0"
+    "webpack": "5.82.1"
   },
   "jest": {
     "transform": {
