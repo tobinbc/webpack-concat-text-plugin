@@ -2,7 +2,6 @@
 [![Publish Status][publish-badge]][publish-url]
 [![NPM version][npm-badge]][npm-url]
 [![License][license-badge]][license-url]
-[![Dependencies Status][deps-badge]][deps-url]
 
 # concat-text-webpack-plugin-2023
 
@@ -172,13 +171,11 @@ A GitHub Action will now test and publish the new release.
 
 [MIT](./LICENSE)
 
-[npm-badge]: https://img.shields.io/npm/v/concat-text-webpack-plugin.svg
-[npm-url]: https://npmjs.org/package/concat-text-webpack-plugin
+[npm-badge]: https://img.shields.io/npm/v/concat-text-webpack-plugin-2023.svg
+[npm-url]: https://npmjs.org/package/concat-text-webpack-plugin-2023
 [license-badge]: https://img.shields.io/badge/license-MIT-green.svg
 [license-url]: http://opensource.org/licenses/MIT
-[deps-badge]: https://david-dm.org/merkle-open/webpack-concat-text-plugin/status.svg
-[deps-url]: https://david-dm.org/merkle-open/webpack-concat-text-plugin
-[ci-badge]: https://github.com/merkle-open/webpack-concat-text-plugin/workflows/Build%20&%20Test/badge.svg
-[ci-url]: https://github.com/merkle-open/webpack-concat-text-plugin/actions?query=workflow%3A%22Build+%26+Test%22
-[publish-badge]: https://github.com/merkle-open/webpack-concat-text-plugin/workflows/Publish/badge.svg
-[publish-url]: https://github.com/merkle-open/webpack-concat-text-plugin/actions?query=workflow%3APublish
+[ci-badge]: https://github.com/tobinbc/webpack-concat-text-plugin/workflows/Build%20&%20Test/badge.svg
+[ci-url]: https://github.com/tobinbc/webpack-concat-text-plugin/actions?query=workflow%3A%22Build+%26+Test%22
+[publish-badge]: https://github.com/tobinbc/webpack-concat-text-plugin/workflows/Publish/badge.svg
+[publish-url]: https://github.com/tobinbc/webpack-concat-text-plugin/actions?query=workflow%3APublish
