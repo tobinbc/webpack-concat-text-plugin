@@ -17,7 +17,7 @@ error Found incompatible module.
 The original code has been changed to work with the major breaking changes in Webpack 5, and tested against Node 16, 18, 19, 20. It'll be kept up to date with new Webpack + Node versions. It keeps the same API as the original package.
 
 
-## Usage
+## Over-writing a Nested Dependency
 
 ### Yarn
 
