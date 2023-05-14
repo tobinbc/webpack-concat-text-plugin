@@ -4,7 +4,51 @@
 [![License][license-badge]][license-url]
 [![Dependencies Status][deps-badge]][deps-url]
 
-# concat-text-webpack-plugin
+# concat-text-webpack-plugin-2023
+
+This has been forked from the [original repo](https://github.com/merkle-open/webpack-concat-text-plugin) which has been archived / made read only.
+
+It is to fix this error which is found when using Node 18 or above and have `webpack-concat-text-plugin` in a nested dependency. The error is because the package is capped to Node 16, and Webpack 4. 
+
+```
+error concat-text-webpack-plugin@0.2.1: The engine "node" is incompatible with this module. Expected version ">=8 <=16". Got "18.16.0"
+error Found incompatible module.
+```
+
+The original code has been changed to work with the major breaking changes in Webpack 5, and tested against Node 16, 18, 19, 20. It'll be kept up to date with new Webpack + Node versions. It keeps the same API as the original package.
+
+
+## Usage
+
+### Direct dependencies
+
+Remove your existing `webpack-concat-text-plugin` and install `concat-text-webpack-plugin-2023`, then import the same exports to your config.
+
+### Nested dependancies
+
+For `yarn` use `resolutions` by adding this block to your `package.json`. It works by replacing any nested imports of `concat-text-webpack-plugin` with `concat-text-webpack-plugin-2023`.   
+
+```
+# package.json
+
+"resolutions": {
+    "**/concat-text-webpack-plugin": "concat-text-webpack-plugin-2023"
+}
+  ```
+
+For `npm` use `overrides` but with the `npm:` prefix to override the entire package with a completely different package.
+
+```
+# package.json 
+
+"overrides": {
+  "dependency": {
+    "concat-text-webpack-plugin": "npm:concat-text-webpack-plugin-2023"
+  }
+}
+```
+
+# Original README
 
 The `ConcatTextPlugin` extracts and concatenates text files from a specified *glob* path into a single file. This is **not intended** to be used to extract frontend asset files, like stylesheets (use the [mini-css-extract-plugin](https://github.com/webpack-contrib/mini-css-extract-plugin) for this). Instead, this plugin is helpful when dealing with raw text assets that have been split into multiple files for code modularisation purposes, but need to be consolidated for consumption by e.g. the project's backend system.
 
