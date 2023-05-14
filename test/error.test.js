@@ -23,7 +23,7 @@ describe(PLUGIN_NAME, () => {
 			callback(new Error("Glob Error"), "");
 		});
 
-		const compiler = createCompiler();
+		const { compiler } = createCompiler();
 
 		new ConcatTextPlugin(pluginConfig).apply(compiler);
 
@@ -43,7 +43,7 @@ describe(PLUGIN_NAME, () => {
 			return Promise.reject(new Error("Concat Error"));
 		});
 
-		const compiler = createCompiler();
+		const { compiler } = createCompiler();
 
 		new ConcatTextPlugin(pluginConfig).apply(compiler);
 
