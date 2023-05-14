@@ -34,3 +34,5 @@ lerna-debug.log
 # dist/
 test/__output__
 test/coverage
+
+dist/

@@ -1,7 +1,22 @@
 {
-  "name": "concat-text-webpack-plugin",
-  "version": "0.2.1",
-  "description": "Concatenate and extract text files.",
+  "name": "concat-text-webpack-plugin-2023",
+  "version": "1.0.0",
+  "description": "Concatenate and extract text files. Forked + updated for Node 18, 19, 20 and Webpack 5",
+  "contributors": [
+    {
+      "email": "patrick.lam@emea.merkleinc.com",
+      "name": "Patrick Lam"
+    }
+  ],
+  "keywords": [
+    "webpack",
+    "plugin",
+    "concat",
+    "text",
+    "extract",
+    "file",
+    "node 18"
+  ],
   "main": "dist/cjs.js",
   "files": [
     "dist"
@@ -21,13 +36,14 @@
     "test:coverage": "jest --coverage",
     "lint": "eslint src/index.js test"
   },
-  "author": "Patrick Lam <patrick.lam@emea.merkleinc.com>",
+  "author": "Tobin Chew <tobin@boffinsridge.co.uk",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git://github.com/merkle-open/webpack-concat-text-plugin.git"
+    "url": "git://github.com/tobinbc/webpack-concat-text-plugin.git"
   },
   "dependencies": {
+    "@types/jest": "29.5.1",
     "concat": "1.0.3",
     "glob": "7.1.6",
     "webpack-sources": "1.4.3"
@@ -45,7 +61,7 @@
     "memory-fs": "0.5.0",
     "pkg-ok": "2.3.1",
     "rimraf": "3.0.2",
-    "webpack": "4.43.0"
+    "webpack": "5.82.1"
   },
   "jest": {
     "transform": {
