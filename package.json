@@ -1,6 +1,6 @@
 {
   "name": "concat-text-webpack-plugin-2023",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Concatenate and extract text files. Forked + updated for Node 18, 19, 20 and Webpack 5",
   "contributors": [
     {

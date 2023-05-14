@@ -17,25 +17,49 @@ error Found incompatible module.
 The original code has been changed to work with the major breaking changes in Webpack 5, and tested against Node 16, 18, 19, 20. It'll be kept up to date with new Webpack + Node versions. It keeps the same API as the original package.
 
 
-## Usage
+## Over-writing a Nested Dependency
 
-### Direct dependencies
+### Yarn
 
-Remove your existing `webpack-concat-text-plugin` and install `concat-text-webpack-plugin-2023`, then import the same exports to your config.
+Remove your existing `webpack-concat-text-plugin` 
 
-### Nested dependancies
+```
+yarn remove webpack-concat-text-plugin
+```
 
-For `yarn` use `resolutions` by adding this block to your `package.json`. It works by replacing any nested imports of `concat-text-webpack-plugin` with `concat-text-webpack-plugin-2023`.   
+Add this `webpack-concat-text-plugin-2023`
+
+```
+yarn add webpack-concat-text-plugin-2023
+```
+
+Then update your `package.json` with the `resolutions` block
 
 ```
 # package.json
 
 "resolutions": {
-    "**/concat-text-webpack-plugin": "concat-text-webpack-plugin-2023"
+    "**/concat-text-webpack-plugin": "npm:concat-text-webpack-plugin-2023"
 }
-  ```
+```
+It works by replacing any nested imports of `concat-text-webpack-plugin` with `concat-text-webpack-plugin-2023`, with the version specified in your `dependencies`.
 
-For `npm` use `overrides` but with the `npm:` prefix to override the entire package with a completely different package.
+
+### NPM
+
+Remove your existing `webpack-concat-text-plugin` 
+
+```
+npm remove webpack-concat-text-plugin
+```
+
+Add this `webpack-concat-text-plugin-2023`
+
+```
+npm i -D webpack-concat-text-plugin-2023
+```
+
+For `npm` use `overrides` to override the entire package with a completely different package.
 
 ```
 # package.json 
